@@ -1,0 +1,84 @@
+@import "../public/public.css";
+
+main{
+    width: 500px;
+    margin: 0 auto;
+}
+h1{
+    text-align: center;
+}
+/****************************/
+form{
+    background-color: azure;
+}
+
+/*아이디 패스워드 입력*/
+.user-info-section > label{
+    display: flex; /* 1. 부모에 display: flex 설정 후*/
+    border: 1px solid var(--Dark-gray-textured-background---1-rgba);
+    margin: 8px 0;
+    align-items: center;
+}
+.user-info-section input{
+    flex: 1; /* 2. 자식에 flex: 1하면 꽉찬다. */
+    border: none;
+    padding: 10px;
+    font-size: var(--font-size-small);
+    outline: none;
+}
+.user-info-section i{
+    font-size: var(--font-size-normal);
+    margin: 0 8px;
+}
+/**********************************************/
+/*아이디저장 자동로그인*/
+.login-config-section{
+    text-align: right;
+    margin: 4px 0;
+}
+.login-config-section label{
+    margin-left: 20px;
+    color: var(--abstract-gray-background---1-rgba);
+}
+.login-config-section input{
+    margin-right: 5px;
+}
+/********************************************/
+/*아이디 찾기, 패스워드 변경, 회원가입*/
+.link-section{
+    margin: 30px 0;
+    text-align: center; /* 문자 가로에서 중앙*/
+}
+.link-section a{
+    color: var(--Dark-gray-textured-background---5-rgba);
+    text-decoration: none; /* 밑줄 제거*/
+    font-size: var(--font-size-x-small);
+    &:hover{ /*마우스 올리면 밑줄 생성*/
+        text-decoration: underline;
+    }
+}
+.link-section a:not(:last-child)::after{ /* 마지막 자식 제외, 뒤에 | 문자 붙임*/
+    content: "|";
+    margin: 0 5px; /* 좌우 여백*/
+    color: var(--Dark-gray-textured-background---1-rgba);
+}
+/********************************************/
+/*로그인 버튼*/
+#login-btn{
+    width: 100%;
+    padding: 14px 0; /* 위아래 안쪽 여백*/
+    font-size: var(--font-size-normal);
+    border: 1px solid black;
+
+    background-color: black;
+    color: white;
+
+    cursor: pointer;
+    transition-duration: 0.2s; /* 낮을수록 빠르게*/
+
+    &:hover{
+        background-color: white;
+        color: black;
+    }
+}
+
