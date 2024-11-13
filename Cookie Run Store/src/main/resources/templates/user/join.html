@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>회원등록 | KOREA STORE</title>
+    <link rel="stylesheet" href="../../static/css/user/join.css">
+</head>
+<body>
+<main>
+    <h1>회원등록</h1>
+    <form action="">
+        <h2>필수정보</h2>
+        <section>
+            <div class="id-input-container">
+                <i class="bi bi-person-fill"></i>
+                <label><input type="text" placeholder="아이디를 입력하세요"></label>
+            </div>
+
+            <div class="pw-input-container">
+                <i class="bi bi-lock-fill"></i>
+                <label><input type="text" placeholder="비밀번호를 입력하세요"></label>
+            </div>
+
+            <div class="pw-re-input-container">
+                <i class="bi bi-lock-fill"></i>
+                <label><input type="text" placeholder="비밀번호를 한번 더 입력하세요"></label>
+            </div>
+
+            <div class="tel-input-container">
+                <i class="bi bi-telephone-fill"></i>
+                <label>
+                    <select>
+                        <option selected>010</option>
+                        <option>011</option>
+                        <option>017</option>
+                        <option>018</option>
+                    </select>
+                </label>
+                <label><input type="text"></label>
+                <label><input type="text"></label>
+            </div>
+
+            <div class="email-input-container">
+                <i class="bi bi-envelope-fill"></i>
+                <label><input type="text"></label>
+                <i class="bi bi-at"></i>
+                <label><input type="text"></label>
+                <label>
+                    <select>
+                        <option selected>직접입력</option>
+                        <option>naver.com</option>
+                        <option>google.com</option>
+                        <option>nate.com</option>
+                    </select>
+                </label>
+                <button type="button">인증하기</button>
+            </div>
+
+            <div class="email-auth-input-container">
+                <label><input type="text" placeholder="인증번호를 입력하세요"></label>
+                <button type="button">확인</button>
+            </div>
+        </section>
+
+        <h2>선택정보</h2>
+        <section>
+            <div class="nickname-input-container">
+                <span>닉네임</span>
+                <label><input type="text" placeholder="닉네임을 입력하세요"></label>
+            </div>
+            <div class="image-input-container">
+                <i class="bi bi-image"></i>
+                <label><input type="file"></label>
+            </div>
+        </section>
+
+        <section class="join-btn-section">
+            <button type="submit">가입하기</button>
+            <button type="button">돌아가기</button>
+        </section>
+    </form>
+
+
+
+</main>
+</body>
+</html>

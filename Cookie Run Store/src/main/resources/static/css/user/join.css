@@ -1,0 +1,46 @@
+@import "../public/public.css";
+
+main{
+    width: 700px;
+    margin: 0 auto;
+}
+h1{
+    text-align: center;
+    font-size: var(--font-size-xx-large);
+    margin: 40px 0;
+}
+h2{
+    margin: 10px 0;
+}
+/****************************************/
+form > section > div{
+    display: flex;
+    align-items: center;
+    background-color: azure;
+    margin: 10px 0;
+}
+form > section > div > i{
+    font-size: var(--font-size-large);
+    margin-right: 10px;
+}
+form input{
+    font-size: var(--font-size-small);
+    width: 100%;
+    padding: 5px 10px;
+}
+/*******************************************/
+.id-input-container label{
+    flex: 1;
+}
+.id-input-container input{
+}
+
+
+
+
+
+
+
+
+
+
