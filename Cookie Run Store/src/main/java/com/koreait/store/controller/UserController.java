@@ -29,8 +29,8 @@ public class UserController {
 
     @PostMapping("/join")
     public String post_join(UserDTO userDTO) {
-        System.out.println("post_join 실행됨!");
-        System.out.println("userDTO: " + userDTO);
+//        System.out.println("post_join 실행됨!");
+//        System.out.println("userDTO: " + userDTO);
         userService.join_user(userDTO);
         return "redirect:/user/login";
     }
