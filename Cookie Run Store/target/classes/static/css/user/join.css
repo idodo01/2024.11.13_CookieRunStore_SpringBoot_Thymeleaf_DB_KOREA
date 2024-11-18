@@ -152,6 +152,17 @@ form input{
     }
 }
 
+/**********************************************************/
+.error-container{
+    display: none;
+    margin: 2px 0 10px 0;
+    padding: 0 60px;
+    color: var(--Pasteles-5-rgba);
+}
+.error-container[active]{
+    display: block;
+}
+
 
 
 

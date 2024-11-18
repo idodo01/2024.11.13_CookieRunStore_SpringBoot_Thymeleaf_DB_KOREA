@@ -1,16 +1,29 @@
 package com.koreait.store.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.validator.constraints.Length;
 
 @Getter
 @Setter
 @ToString
 public class UserDTO { // join.html에서 name으로 넘어온 것들이 여기에 각각 들어감
+    @NotBlank
+    @Length(min = 4, max = 15)
+    @Pattern(regexp = "^[a-z][0-9a-zA-Z]*$")
     private String id;
+    @NotBlank
+    @Pattern(regexp = "^[0-9a-zA-Z~!@#$%^&*()_=+.-]{4,10}")
     private String password;
+    @NotBlank
+    @Pattern(regexp = "^(010|011|017|019|018)-[0-9]{3,4}-[0-9]{4}$")
     private String tel;
+    @NotBlank
+    @Email
     private String email;
     private String nickname;
 //    private String profileImage;
