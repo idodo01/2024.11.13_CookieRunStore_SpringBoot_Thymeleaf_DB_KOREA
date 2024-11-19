@@ -11,7 +11,7 @@ import org.hibernate.validator.constraints.Length;
 @Getter
 @Setter
 @ToString
-public class UserDTO { // join.html에서 name으로 넘어온 것들이 여기에 각각 들어감
+public class UserDTO {
     @NotBlank
     @Length(min = 4, max = 15)
     @Pattern(regexp = "^[a-z][0-9a-zA-Z]*$")
@@ -35,5 +35,4 @@ public class UserDTO { // join.html에서 name으로 넘어온 것들이 여기�
     public void setEmail(String email) {
         this.email = email.replace(",", "@");
     }
-
 }

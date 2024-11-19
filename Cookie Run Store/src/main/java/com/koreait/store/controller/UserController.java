@@ -53,7 +53,11 @@ public class UserController {
             @ModelAttribute @Validated UserDTO userDTO,
             BindingResult bindingResult
     ) {
-//        userService.join_user(userDTO);
-        return "user/join";
+        if(bindingResult.hasErrors()){
+            return "user/join";
+        }
+        boolean joinResult = userService.join_user(userDTO);
+        // 가입 성공이면 login 화면으로, 실패라면 회원가입 화면으로.
+        return joinResult ? "redirect:/user/login" : "user/join";
     }
 }

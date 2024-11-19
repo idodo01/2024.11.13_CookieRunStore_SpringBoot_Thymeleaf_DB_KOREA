@@ -6,22 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <title>회원등록 | KOREA STORE</title>
-    <link rel="stylesheet"
-          href="../../static/css/user/join.css"
-          th:href="@{/css/user/join.css}"
-    >
-
-<!--  defer: 자바스크립트 코드를 비동기식으로 가져옴
-    html코드 나오기 전에 (html코드를 호출하는)자바스크립트를
-    가져왔기 때문에, 원래는 오류가 발생함.
-    (오류가 발생하지 않기 위해서는 html가
-    실행된 후, 하단 마지막에 <script>해야함)
-    but, defer 덕분에 상단에 적어도 정상작동-->
-    <script src="../../static/js/user/join.js"
-            th:src="@{/js/user/join.js}"
-    defer></script>
-
-
+    <link rel="stylesheet" href="../../static/css/user/join.css">
+    <script src="../../static/js/user/join.js" defer></script>
 </head>
 <body>
 <main>
@@ -36,7 +22,7 @@
                            placeholder="아이디를 입력하세요 (4~15자, 영문자로 시작, 영문자+숫자)">
                 </label>
             </div>
-            <div class="error-container" th:active="${#fields.hasErrors('id')}">
+            <div class="error-container" th:attr="active=${#fields.hasErrors('id') ? 'true' : ''}">
                 <span>아이디 형식이 잘못되었습니다</span>
             </div>
 
@@ -49,12 +35,12 @@
                 <i class="bi bi-lock-fill"></i>
                 <label><input type="text" id="password-re" placeholder="비밀번호를 한번 더 입력하세요"></label>
             </div>
-            <div class="error-container">
+            <div class="error-container" th:attr="active=${#fields.hasErrors('password') ? 'true' : ''}">
                 <span>비밀번호 형식이 잘못되었습니다</span>
             </div>
 
             <div class="tel-input-container"
-                 th:with="tel=*{tel == null ? '010-0000-0000' : tel},tel=${tel.split('-')}"
+                 th:with="tel=*{tel == null ? '010--' : tel},tel=${tel.split('-', -1)}"
             >
                 <i class="bi bi-telephone-fill"></i>
                 <label class="tel-head-label">
@@ -70,15 +56,15 @@
                 <span>-</span>
                 <label><input type="text" name="tel" th:value="${tel[2]}"></label>
             </div>
-            <div class="error-container">
+            <div class="error-container" th:attr="active=${#fields.hasErrors('tel') ? 'true' : ''}">
                 <span>전화번호 형식이 잘못되었습니다</span>
             </div>
 
             <div class="email-input-container">
                 <i class="bi bi-envelope-fill"></i>
-                <label><input type="text" name="email" th:if="*{email == null ? '' : email.split('@')[0]}"></label>
+                <label><input type="text" name="email" th:value="*{email == null ? '' : email.split('@', -1)[0]}"></label>
                 <i class="bi bi-at"></i>
-                <label><input type="text" name="email" th:if="*{email == null ? '' : email.split('@')[1]}"></label>
+                <label><input type="text" name="email" th:value="*{email == null ? '' : email.split('@', -1)[1]}"></label>
                 <label class="email-tail-label">
                     <select>
                         <option selected>직접입력</option>
@@ -89,7 +75,7 @@
                 </label>
                 <button type="button">인증하기</button>
             </div>
-            <div class="error-container">
+            <div class="error-container" th:attr="active=${#fields.hasErrors('email') ? 'true' : ''}">
                 <span>이메일 형식이 잘못되었습니다</span>
             </div>
 
