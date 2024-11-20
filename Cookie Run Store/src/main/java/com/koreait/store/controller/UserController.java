@@ -33,6 +33,7 @@ public class UserController {
     @GetMapping("/login")
     public void get_login() {}
     /************************************************/
+    // validation 추가 전
 //    @GetMapping("/join")
 //    public void get_join() {}
 

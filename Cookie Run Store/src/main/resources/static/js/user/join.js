@@ -1,5 +1,8 @@
 const idInput = document.getElementById('id');
-const pwInput = document.getElementById('password');
+const idCheckBtn = document.querySelector('.id-input-container button');
+const idCheckInput = document.querySelector('input[name="id-check"]');
+const idCheckValidInput = document.querySelector('input[name="id-check-valid"]');
+
 const pwReInput = document.getElementById('password-re');
 const telHead = document.querySelector('.tel-input-container select');
 const [telMiddle, telTail] = document.querySelectorAll('.tel-input-container input');
@@ -12,7 +15,29 @@ const [joinBtn, cancelBtn] = document.querySelectorAll('.join-btn-section > butt
 /************************************************************************/
 const [idInputError, pwInputError, telInputError, emailInputError] = document.querySelectorAll('.error-container');
 
-console.log(pwInputError);
+// id 중복 체크 버튼 클릭 시
+idCheckBtn.onclick = () => {
+    const id = idInput.value;
+    if(id.trim() === ''){
+        alert('ID를 입력해주세요!');
+        return;
+    }
+    fetch(`/user/id/${id}`)
+        .then(response => {
+            idCheckInput.value = id;
+            idCheckValidInput.value = false;
+
+            switch (response.status){
+                case 200:
+                    alert('해당 아이디는 사용 가능합니다^-^');
+                    idCheckValidInput.value = true;
+                    break;
+                case 302:
+                    alert('해당 아이디는 사용 불가능합니다ㅠㅠ');
+                    break;
+            }
+        })
+}
 
 /// 이메일 주소 직접입력/자동 설정
 emailSelect.onchange = () => {
@@ -94,12 +119,12 @@ function check_input_values(){
 
 ///// ********** 회원가입 버튼 클릭 시
 // 1) submit 버튼에서 event의 기본 동작 취소하기
-joinBtn.onclick = (event) => {
-    // input 값들 중 하나라도 잘못 적었다면
-    if(!check_input_values()){
-        event.preventDefault();
-    }
-}
+// joinBtn.onclick = (event) => {
+//     // input 값들 중 하나라도 잘못 적었다면
+//     if(!check_input_values()){
+//         event.preventDefault();
+//     }
+// }
 // // 2) form의 submit event의 기본 동작 취소하기
 // document.forms[0].onsubmit = event => {
 //     // input 값들 중 하나라도 잘못 적었다면
@@ -109,6 +134,22 @@ joinBtn.onclick = (event) => {
 //     }
 // }
 
+
+joinBtn.onclick = (event) => {
+    const id = idCheckInput.value;
+    const valid = idCheckValidInput.value;
+    // 현재 회원가입하려고 하는 아이디가, 중복체크해서 사용한 아이디와 다르며
+    // 중복체크를 통과하지 못했다면 회원가입을 시키면 안된다
+    if(idInput.value !== id || valid === 'false'){
+        alert('중복 체크 해주세요~');
+        event.preventDefault();
+    }
+
+    // input 값들 중 하나라도 잘못 적었다면
+    if(!check_input_values()){
+        event.preventDefault();
+    }
+}
 
 
 

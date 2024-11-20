@@ -21,6 +21,9 @@
                     <input type="text" id="id" name="id" th:value="*{id}"
                            placeholder="아이디를 입력하세요 (4~15자, 영문자로 시작, 영문자+숫자)">
                 </label>
+                <button type="button">중복검사</button>
+                <input type="hidden" name="id-check">
+                <input type="hidden" name="id-check-valid" value="false">
             </div>
             <div class="error-container" th:attr="active=${#fields.hasErrors('id') ? 'true' : ''}">
                 <span>아이디 형식이 잘못되었습니다</span>
