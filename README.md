@@ -7,4 +7,9 @@
 3. security
 
 <프로젝트>
-1. CookieRunStore : 가입 id 중복기능으로 rest 적용까지 되어있음
+1. vaild : 휴대폰 이메일 유효성
+2. rest : 아이디 중복 체크
+3. security : 로그인
+
+<home.html 참고 사이트 - 쿠키런>
+https://jp.cookierunstore.com/
