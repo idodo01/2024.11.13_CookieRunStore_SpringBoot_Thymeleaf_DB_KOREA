@@ -20,7 +20,7 @@ login
 <home.html 참고 사이트 - 쿠키런>
 https://jp.cookierunstore.com/
 
-1. 메인페이지 (11/25)
+1.메인페이지 (11/25)
 header (이 프로젝트에는 적용 안된 상태)
 home
 
